@@ -1,110 +1,96 @@
-import React from "react";
+import React, { useState } from "react";
 import Image from "next/image";
+import images from "@/app/data/images";
+interface ProductCarouselProps {
+	width?: number;
+	height?: number;
+	title?: string;
+	description?: string;
+	imageUrl?: string;
+	altText?: string;
+}
 
-const ProductCarousel = () => {
+const ProductCarousel: React.FC<ProductCarouselProps> = () => {
+	const [activeIndex, setActiveIndex] = useState(0);
+
+	const prevSlide = () => {
+		setActiveIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1));
+	};
+	const nextSlide = () => {
+		setActiveIndex((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+	};
+
 	return (
-		<div
-			id="animation-carousel"
-			className="relative w-full"
-			data-carousel="static">
-			{/* Carousel wrapper */}
-			<div className="relative h-56 overflow-hidden rounded-lg md:h-96">
-				{/* Item 1 */}
-				<div
-					className="hidden duration-200 ease-linear"
-					data-carousel-item>
-					<Image
-						src="/docs/images/carousel/carousel-1.svg"
-						className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-						alt="..."
-					/>
-				</div>
-				{/* Item 2 */}
-				<div
-					className="hidden duration-200 ease-linear"
-					data-carousel-item>
-					<Image
-						src="/docs/images/carousel/carousel-2.svg"
-						className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-						alt="..."
-					/>
-				</div>
-				{/* Item 3 */}
-				<div
-					className="hidden duration-200 ease-linear"
-					data-carousel-item="active">
-					<Image
-						src="/docs/images/carousel/carousel-3.svg"
-						className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-						alt="..."
-					/>
-				</div>
-				{/* Item 4 */}
-				<div
-					className="hidden duration-200 ease-linear"
-					data-carousel-item>
-					<Image
-						src="/docs/images/carousel/carousel-4.svg"
-						className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-						alt="..."
-					/>
-				</div>
-				{/* Item 5 */}
-				<div
-					className="hidden duration-200 ease-linear"
-					data-carousel-item>
-					<Image
-						src="/docs/images/carousel/carousel-5.svg"
-						className="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
-						alt="..."
-					/>
-				</div>
+		<div className="relative w-full max-w-2xl mx-auto">
+			<div className="relative h-56 overflow-hidden rounded-lg md:h-96 flex items-center justify-center bg-gray-100">
+				<Image
+					src={images[activeIndex].src}
+					alt={images[activeIndex].alt}
+					width={600}
+					height={600}
+					className="object-contain w-full h-full rounded-lg"
+					priority={activeIndex === 0}
+				/>
 			</div>
-			{/* Slider controls */}
+
 			<button
 				type="button"
-				className="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-				data-carousel-prev>
-				<span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-					<svg
-						className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-						aria-hidden="true"
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 6 10">
-						<path
-							stroke="currentColor"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							strokeWidth="2"
-							d="M5 1 1 5l4 4"
-						/>
-					</svg>
-					<span className="sr-only">Previous</span>
-				</span>
+				className="absolute top-1/2 left-2 z-30 flex items-center justify-center h-10 w-10 -translate-y-1/2 rounded-full bg-white/70 hover:bg-white/90 shadow focus:outline-none"
+				onClick={prevSlide}
+				aria-label="Imagem anterior">
+				<svg
+					className="w-5 h-5 text-gray-700"
+					fill="none"
+					viewBox="0 0 6 10"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						stroke="currentColor"
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						strokeWidth="2"
+						d="M5 1 1 5l4 4"
+					/>
+				</svg>
 			</button>
 			<button
 				type="button"
-				className="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"
-				data-carousel-next>
-				<span className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
-					<svg
-						className="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
-						aria-hidden="true"
-						xmlns="http://www.w3.org/2000/svg"
-						fill="none"
-						viewBox="0 0 6 10">
-						<path
-							stroke="currentColor"
-							strokeLinecap="round"
-							strokeLinejoin="round"
-							strokeWidth="2"
-							d="m1 9 4-4-4-4"
-						/>
-					</svg>
-					<span className="sr-only">Next</span>
-				</span>
+				className="absolute top-1/2 right-2 z-30 flex items-center justify-center h-10 w-10 -translate-y-1/2 rounded-full bg-white/70 hover:bg-white/90 shadow focus:outline-none"
+				onClick={nextSlide}
+				aria-label="Próxima imagem">
+				<svg
+					className="w-5 h-5 text-gray-700"
+					fill="none"
+					viewBox="0 0 6 10"
+					xmlns="http://www.w3.org/2000/svg">
+					<path
+						stroke="currentColor"
+						strokeLinecap="round"
+						strokeLinejoin="round"
+						strokeWidth="2"
+						d="m1 9 4-4-4-4"
+					/>
+				</svg>
 			</button>
+
+			<div className="flex justify-center gap-2 mt-4">
+				{images.map((img, idx) => (
+					<button
+						key={img.src}
+						className={`border-2 rounded-lg overflow-hidden w-16 h-16 focus:outline-none ${
+							activeIndex === idx ? "border-blue-600" : "border-transparent"
+						}`}
+						onClick={() => setActiveIndex(idx)}
+						aria-label={`Selecionar imagem ${idx + 1}`}>
+						<Image
+							src={img.src}
+							alt={img.alt}
+							width={64}
+							height={64}
+							className="object-contain w-full h-full"
+						/>
+					</button>
+				))}
+			</div>
 		</div>
 	);
 };
