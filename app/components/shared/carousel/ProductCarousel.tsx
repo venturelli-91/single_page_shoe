@@ -1,15 +1,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import images from "@/app/data/images";
-interface ProductCarouselProps {
-	width?: number;
-	height?: number;
-	title?: string;
-	description?: string;
-	imageUrl?: string;
-	altText?: string;
-}
-
+import ProductCarouselProps from "@/app/types/components/carousel/carousel";
 const ProductCarousel: React.FC<ProductCarouselProps> = () => {
 	const [activeIndex, setActiveIndex] = useState(0);
 

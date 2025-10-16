@@ -1,11 +1,10 @@
-interface SiteBreadcrumbProps {
-	label?: string;
-	ariaLabel?: string;
+export interface BreadcrumbItem {
+	label: string;
 	href?: string;
-	isCurrent?: boolean;
-	isDisabled?: boolean;
-	height?: string;
-	width?: string;
 }
-
-export type { SiteBreadcrumbProps };
+export interface SiteBreadcrumbProps {
+	items?: BreadcrumbItem[];
+	separator?: React.ReactNode;
+	className?: string;
+	ariaLabel?: string;
+}
