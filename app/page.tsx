@@ -11,7 +11,7 @@ const breadcrumbItems: BreadcrumbItem[] = [
 	{ label: "Total 90" },
 ];
 
-const productTitle = "Tênis de Corrida Masculino";
+const productTitle = "Nike Total 90";
 const productDescription =
 	"Performance, conforto e estilo para suas corridas urbanas e treinos diários.";
 const productHighlights = [
@@ -27,8 +27,7 @@ const Home = () => {
 			<nav className="w-full max-w-4xl mb-6">
 				<SiteBreadcrumb items={breadcrumbItems} />
 			</nav>
-			<section className="w-full max-w-4xl bg-white rounded-xl shadow-md p-6 md:p-10 grid md:grid-cols-2 gap-8 items-center">
-				{/* Imagem/carousel */}
+			<section className="w-full max-w-7xl bg-white rounded-xl shadow-md p-6 md:p-10 grid md:grid-cols-2 gap-8 items-center">
 				<div className="flex justify-center items-center">
 					<ProductCarousel />
 				</div>
