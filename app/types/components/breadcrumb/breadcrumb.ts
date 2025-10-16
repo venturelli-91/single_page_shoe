@@ -4,6 +4,8 @@ interface SiteBreadcrumbProps {
 	href?: string;
 	isCurrent?: boolean;
 	isDisabled?: boolean;
+	height?: string;
+	width?: string;
 }
 
 export type { SiteBreadcrumbProps };
