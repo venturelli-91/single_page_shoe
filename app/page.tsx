@@ -13,17 +13,18 @@ const breadcrumbItems: BreadcrumbItem[] = [
 
 const productTitle = "Nike Total 90";
 const productDescription =
-	"Performance, conforto e estilo para suas corridas urbanas e treinos diários.";
+	"Chuteira Futsal Nike Total 90 III – Precisão e Controle nas Quadras Eleve seu desempenho com a Chuteira Futsal Nike Total 90 III, desenvolvida para proporcionar máximo controle, precisão e conforto nas quadras indoor.";
+
 const productHighlights = [
-	"Leveza e conforto para corridas urbanas",
-	"Solado antiderrapante com alta durabilidade",
-	"Design moderno e respirável",
-	"Tecnologia de amortecimento avançada",
+	"Ajuste perfeito e suporte premium para dribles rápidos.",
+	"Sola de borracha non-marking com excelente aderência.",
+	"Movimentação estável e segura em superfícies lisas.",
+	"Design icônico e alta durabilidade para desempenho e estilo.",
 ];
 
 const Home = () => {
 	return (
-		<main className="min-h-screen bg-gray-50 flex flex-col items-center py-8 px-2">
+		<main className="min-h-screen bg-gray-50 flex flex-col items-center py-8 px-2 font-family">
 			<nav className="w-full max-w-4xl mb-6">
 				<SiteBreadcrumb items={breadcrumbItems} />
 			</nav>

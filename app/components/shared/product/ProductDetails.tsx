@@ -1,4 +1,5 @@
 import CustomButton from "../button/CustomButton";
+import CustomCard from "../card/CustomCard";
 import ProductDetailsProps from "@/app/types/components/product/product";
 
 const ProductDetails: React.FC<ProductDetailsProps> = ({
@@ -9,18 +10,23 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
 	return (
 		<section className="flex flex-col gap-6">
 			<header>
-				<h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-10">
+				<h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 mt-6">
 					{title}
 				</h1>
-				<p className="text-2xl text-gray-600">{description}</p>
+				<p className="text-xl text-gray-600">{description}</p>
 			</header>
-			<ul className="list-disc pl-5 space-y-1 text-gray-700 text-xl">
+			<ul className="list-disc pl-5 space-y-1 text-gray-700 text-md">
 				{highlights.map((item, idx) => (
 					<li key={idx}>{item}</li>
 				))}
 			</ul>
-			<div className="mt-4">
-				<CustomButton className="w-full md:w-auto px-10 py-3">
+			<div className="mt-4 flex flex-row items-center gap-2 flex-wrap">
+				<div className="flex flex-row flex-wrap gap-1 ml-2">
+					{[36, 37, 38, 39, 40, 41, 42, 43].map((size) => (
+						<CustomCard key={size}>{size}</CustomCard>
+					))}
+				</div>
+				<CustomButton className="px-6 py-3 ml-36">
 					<span className="inline-flex items-center gap-2">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"

@@ -15,19 +15,28 @@ const ProductCarousel: React.FC<ProductCarouselProps> = () => {
 	return (
 		<div className="relative w-full max-w-2xl mx-auto">
 			<div className="relative h-56 overflow-hidden rounded-lg md:h-96 flex items-center justify-center bg-gray-100">
-				<Image
-					src={images[activeIndex].src}
-					alt={images[activeIndex].alt}
-					width={600}
-					height={600}
-					className="object-contain w-full h-full rounded-lg"
-					priority={activeIndex === 0}
-				/>
+				<div className="w-full h-full relative">
+					{images.map((img, idx) => (
+						<Image
+							key={img.src}
+							src={img.src}
+							alt={img.alt}
+							width={600}
+							height={600}
+							priority={activeIndex === 0}
+							className={`object-contain w-full h-full rounded-lg absolute top-0 left-0 transition-all duration-700 ease-in-out ${
+								idx === activeIndex
+									? "opacity-100 translate-x-0 z-10"
+									: "opacity-0 -translate-x-10 z-0 pointer-events-none"
+							}`}
+						/>
+					))}
+				</div>
 			</div>
 
 			<button
 				type="button"
-				className="absolute top-1/2 left-2 z-30 flex items-center justify-center h-10 w-10 -translate-y-1/2 rounded-full bg-white/70 hover:bg-white/90 shadow focus:outline-none"
+				className="absolute top-1/2 left-2 z-30 flex items-center justify-center h-10 w-10 -translate-y-1/2 rounded-full bg-white/70 hover:bg-white/90 shadow focus:outline-none cursor-pointer"
 				onClick={prevSlide}
 				aria-label="Imagem anterior">
 				<svg
@@ -46,7 +55,7 @@ const ProductCarousel: React.FC<ProductCarouselProps> = () => {
 			</button>
 			<button
 				type="button"
-				className="absolute top-1/2 right-2 z-30 flex items-center justify-center h-10 w-10 -translate-y-1/2 rounded-full bg-white/70 hover:bg-white/90 shadow focus:outline-none"
+				className="absolute top-1/2 right-2 z-30 flex items-center justify-center h-10 w-10 -translate-y-1/2 rounded-full bg-white/70 hover:bg-white/90 shadow focus:outline-none cursor-pointer"
 				onClick={nextSlide}
 				aria-label="Próxima imagem">
 				<svg
