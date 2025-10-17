@@ -41,7 +41,7 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
 						</CustomCard>
 					))}
 				</div>
-				<CustomButton className="px-6 py-3 ml-36">
+				<CustomButton className="px-6 py-3 ">
 					<span className="inline-flex items-center gap-2">
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
