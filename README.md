@@ -1,3 +1,10 @@
+# Screenshots
+
+Add screenshots of the product page here:
+
+![Desktop Screenshot](./public/Screenshots_readme.png)
+![Mobile Screenshot](./public/Screenshots_readme_mobile.png)
+
 # Product Page – Running Shoes
 
 Single page app for a men's running shoe product, featuring a modern, responsive layout and interactive UI.
