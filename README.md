@@ -1,58 +1,39 @@
-# single_page_shoe
+# Product Page – Running Shoes
 
-Creation of a webpage with a shoe product page (running shoes for men), built with React, TypeScript and TailwindCSS.
+Single page app for a men's running shoe product, featuring a modern, responsive layout and interactive UI.
 
-This repository contains a small Single Page Application (SPA) challenge: create a visually appealing, responsive product page for running shoes. The project is structured to be componentized (breadcrumb, image gallery, product details, actions) and optimized for performance and accessibility.
+## Tech Stack
 
-## Tech stack
-
-- Next.js (app router)
-- React + TypeScript
+- Next.js (React + TypeScript)
 - Tailwind CSS
 
 ## Features
 
-- Semantic HTML (accessible breadcrumb, headings, lists)
-- Componentized layout (reusable components under `app/components`)
-- Responsive design using Tailwind (flexbox/grid)
-- Lightweight image usage and simple animations/hover states
-- Optional JSON-LD for Breadcrumbs (SEO)
+- Product image carousel
+- Breadcrumb navigation
+- Product details, highlights, and available sizes
+- Selectable size cards with feedback
+- Responsive design (mobile/tablet/desktop)
+- Accessible and semantic HTML
+- Animated buttons and hover effects
 
-## How to run
+## Quick Start
 
-1. Install dependencies:
-
-```powershell
+```bash
 npm install
-```
-
-2. Run development server:
-
-```powershell
 npm run dev
 ```
 
-3. Build for production:
+Open [http://localhost:3000](http://localhost:3000) to view the page.
 
-```powershell
-npm run build
-npm run start
-```
+## Usage
+
+- Browse product images, details, and sizes
+- Select a size and click "Comprar agora" to simulate a purchase
 
 ## Notes about the breadcrumb
 
 The breadcrumb component lives in `app/components/shared/breadcrumb` and is built to accept a flexible list of items, a custom Link component (for `next/link`), and an optional JSON-LD structured data injection for SEO. It supports truncation and accessibility attributes like `aria-current`.
-
-## Contribution / resolving conflicts
-
-If you run into a merge or rebase conflict on `README.md` (add/add), combine the relevant sections and keep useful run instructions. A recommended quick workflow when rebasing:
-
-```powershell
-git branch backup-before-rebase
-# resolve the README.md content, then:
-git add README.md
-git rebase --continue
-```
 
 ---
 
