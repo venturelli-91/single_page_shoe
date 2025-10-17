@@ -2,11 +2,14 @@ import CustomButton from "../button/CustomButton";
 import CustomCard from "../card/CustomCard";
 import ProductDetailsProps from "@/app/types/components/product/product";
 
+import React, { useState } from "react";
+
 const ProductDetails: React.FC<ProductDetailsProps> = ({
 	title,
 	description,
 	highlights,
 }) => {
+	const [selectedSize, setSelectedSize] = useState<number | null>(null);
 	return (
 		<section className="flex flex-col gap-6">
 			<header>
@@ -21,9 +24,18 @@ const ProductDetails: React.FC<ProductDetailsProps> = ({
 				))}
 			</ul>
 			<div className="mt-4 flex flex-row items-center gap-2 flex-wrap">
-				<div className="flex flex-row flex-wrap gap-1 ml-2">
+				<div className="flex flex-row flex-wrap gap-1 ml-2 cursor-pointer hover-color:blue-600">
 					{[36, 37, 38, 39, 40, 41, 42, 43].map((size) => (
-						<CustomCard key={size}>{size}</CustomCard>
+						<CustomCard
+							key={size}
+							className={
+								selectedSize === size
+									? "bg-green-100 text-green-600 border-green-600"
+									: ""
+							}
+							onClick={() => setSelectedSize(size)}>
+							{size}
+						</CustomCard>
 					))}
 				</div>
 				<CustomButton className="px-6 py-3 ml-36">
