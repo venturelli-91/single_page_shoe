@@ -3,7 +3,6 @@
 Add screenshots of the product page here:
 
 ![Desktop Screenshot](./public/Screenshots_readme.png)
-![Mobile Screenshot](./public/Screenshots_readme_mobile.png)
 
 # Product Page – Running Shoes
 
@@ -45,7 +44,3 @@ The breadcrumb component lives in `app/components/shared/breadcrumb` and is buil
 ---
 
 Small project created as part of a UI challenge to build a product page for running shoes.
-
-```
-
-```
